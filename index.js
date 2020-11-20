@@ -9,7 +9,18 @@ function random_number(){
         time_length -= 1;
     }
     time /= time_to_float;
+    time /= Math.random();
     random_number += time;
+
+    //test random_number > 0 or < 1
+    while (random_number <= 0 || random_number >= 1){
+        console.log(random_number);
+        if (random_number <= 0){
+            random_number += time;
+        }else{
+            random_number -= time;
+        }
+    }
 
     //return random number
     return random_number;
