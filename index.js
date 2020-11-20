@@ -27,27 +27,9 @@ function random_number(){
     //test if random_number > 0 or < 1
     while (random_number <= 0 || random_number >= 1){
         if (random_number <= 0){
-            random_number += time;
-            var a = true;
-            for (element in randoms){
-                if (a){
-                    random_number += randoms[element] + randoms[element];
-                }else{
-                    random_number -= randoms[element];
-                }
-                a = !a;
-            }
+            random_number += randoms[normal_random_(0, randoms.length - 1)] * randoms[normal_random_(0, randoms.length - 1)] / randoms[normal_random_(0, randoms.length - 1)];
         }else{
-            random_number -= time;
-            var a = true;
-            for (element in randoms){
-                if (a){
-                    random_number -= randoms[element];
-                }else{
-                    random_number += randoms[element];
-                }
-                a = !a;
-            }
+            random_number -= randoms[normal_random_(0, randoms.length - 1)] * randoms[normal_random_(0, randoms.length - 1)] / randoms[normal_random_(0, randoms.length - 1)];
         }
     }
 
@@ -56,5 +38,10 @@ function random_number(){
 }
 
 function random(min, max){
+    max += 1;    
     return Math.floor(random_number() * (max - min)) + min;
+}
+
+function normal_random_(min, max){
+    return Math.floor(Math.random() * (max - min)) + min;
 }
