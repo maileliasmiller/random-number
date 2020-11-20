@@ -26,13 +26,12 @@ function random_number(){
 
     //test if random_number > 0 or < 1
     while (random_number <= 0 || random_number >= 1){
-        console.log(random_number);
         if (random_number <= 0){
             random_number += time;
             var a = true;
             for (element in randoms){
                 if (a){
-                    random_number += randoms[element];
+                    random_number += randoms[element] + randoms[element];
                 }else{
                     random_number -= randoms[element];
                 }
