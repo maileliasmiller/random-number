@@ -1,12 +1,22 @@
 <!Doctype html>
 <html>
     <head>
+        <title>Random Number</title>
         <script src="index.js"></script>
     </head>
     <body>
+        <label for="min">Min:</label>
+        <input type="number" id="min">
+        <label for="max">Max:</label>
+        <input type="number" id="max">
         <span id="element"></span>
         <script type="text/javascript">
-            document.getElementbyId("element").innerText = random(0, 100)
+            var min = document.getElementById("min");
+            var max = document.getElementById("max");
+            setInterval(update, 1000);
+            function update(){
+                document.getElementById("element").innerText = random(min.value, max.value);
+            }
         </script>
     </body>
 </html>
